@@ -1,0 +1,4 @@
+#Get
+
+GET 'https://api.perudevs.com/api/v1/dni/complete?document=46246371&key=cGVydWRldnMucHJvZHVjdGlvbi5maXRjb2RlcnMuNjNhNGRlNzAxZWQ1YjUzMmJmNGFlMGEw' HTTP/1.1
+Content-Type: application/json

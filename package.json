@@ -1,0 +1,21 @@
+{
+  "name": "api_reniec",
+  "version": "1.0.0",
+  "description": "Api Reniec",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Api_Reniec"
+  ],
+  "author": "Developer Auren",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "fetch": "^1.1.0",
+    "nodemon": "^2.0.20"
+  }
+}
