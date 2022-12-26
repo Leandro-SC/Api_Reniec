@@ -1,7 +1,11 @@
-
-
-
-
-
-
-
+{
+    "dataBase": [
+        {
+            "id": "45791001",
+            "apellido_paterno": "SAENZ",
+            "apellido_materno": "RAMIREZ",
+            "nombres": "MIGUEL ANGEL",
+            "fecha_nacimiento": "04/07/1989"
+        }
+    ]
+}

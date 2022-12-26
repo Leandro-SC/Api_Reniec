@@ -1,28 +1,17 @@
+class Personas {
 
-
-class Personas{
-
-    constructor(){
-           this.personas = []
-    }
-
-    agregarPersonas(persona){
-        this.personas.push(persona);
-    }
-
+      constructor(id,apellido_paterno,apellido_materno,nombres, fecha_nacimiento){
+        this.id = id,
+        this.apellido_paterno = apellido_paterno,
+        this.apellido_materno = apellido_materno,
+        this.nombres = nombres,
+        this.fecha_nacimiento = fecha_nacimiento
+      }
 
 }
 
-const persona = new Personas();
-persona.agregarPersonas({
-    "nombre":"pueba"
-});
-console.log(persona);
-
-
-module.exports = Personas
 
 
 
 
-
+module.exports = Personas;
