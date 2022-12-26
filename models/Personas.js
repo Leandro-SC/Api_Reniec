@@ -1,6 +1,6 @@
 class Personas {
 
-      constructor(id,apellido_paterno,apellido_materno,nombres, fecha_nacimiento){
+      constructor(id='',apellido_paterno='',apellido_materno='',nombres='', fecha_nacimiento=''){
         this.id = id,
         this.apellido_paterno = apellido_paterno,
         this.apellido_materno = apellido_materno,
@@ -9,8 +9,6 @@ class Personas {
       }
 
 }
-
-
 
 
 

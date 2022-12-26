@@ -9,7 +9,7 @@ class LeerDocumentos{
 
     }
 
-    leerDB = () =>{
+    readDB = () =>{
         //Validar si existe
         if (!fs.existsSync(this.dbPath)) {
             return;

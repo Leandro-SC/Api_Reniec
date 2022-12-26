@@ -2,6 +2,7 @@ const axios = require('axios');
 const express = require('express');
 const app = express();
 const fs = require('fs');
+const Personas = require('./Personas');
 require('dotenv').config()
 const token = "cGVydWRldnMucHJvZHVjdGlvbi5maXRjb2RlcnMuNjNhNGRlNzAxZWQ1YjUzMmJmNGFlMGEw"
 
@@ -23,39 +24,20 @@ class Busquedas {
                 baseURL: `https://api.perudevs.com/api/v1/dni/complete?document=${dni}&key=${token}`,
             });
             const resp = await intance.get();
+            const status = resp.data.estado;
             const info = resp.data.resultado;
-            return info;
+            if (status===false) {
+                const persona = new Personas(id='', apellido_paterno='', apellido_materno='', nombres='', fecha_nacimiento='');
+                return persona; 
+            } else if (status===true) {
+                return info;
+            }
+            
         } catch (error) {
             console.log(error);
             return [];
         }
     }
-
-    agregarPersona(persona) {
-        this.consolidado.unshift(persona);
-        //Grabar en DB
-        this.guardarDB();
-    }
-
-    guardarDB() {
-        const payload = {
-            consolidado: this.consolidado
-        }
-        fs.writeFileSync(this.dbPath, JSON.stringify(payload));
-
-    }
-
-    // leerDB = () => {
-    //     //Validar si existe
-    //     if (!fs.existsSync(this.dbPath)) {
-    //         return;
-    //     }
-    //     //Leer info
-    //     const info = fs.readFileSync(this.dbPath, { encoding: 'utf-8' });
-    //     const data = JSON.parse(info);
-    //     this.consolidado = data.consolidado;
-
-    // }
 
 
 }
