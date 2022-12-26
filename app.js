@@ -13,37 +13,37 @@ const port = process.env.PORT; //process.env.PORT cuando el puerto es dinamico
 //     res.send('Mi servidor online');
 //     res.end();
 // });
-// const main = async ()=>{
+const main = async () => {
 
-//            //Instanciar apu             
-//            const busquedas = new Busquedas();
-//            //buscar resultado
-//            const info_dni = await busquedas.infoDocumento(45791001);
-//            //Obtener resultado
-//            const {id,apellido_paterno,apellido_materno,nombres, fecha_nacimiento} = info_dni;
-//            //agregar datos a un objeto
-//            const persona = new Personas(id,apellido_paterno,apellido_materno,nombres, fecha_nacimiento);
-//            //Enviar datos a una DB en json
-//            const add = new Agregar();
-//            const addData = add.agregarConsolidado(persona);
-//             //Mostrar resultados
-//             console.log('\nInformacion de la Persona\n');
-//             console.log('Informacion de la Persona ' + nombres);
-//             console.log(info_dni);
-            
+        const documents = ["46246371"];
+        //Instanciar api         
+        const busquedas = new Busquedas();
+        //buscar resultado
+        for (const document of documents) {
+                const info_dni = await busquedas.infoDocumento(document);
+                //Obtener resultado
+                const { id, apellido_paterno, apellido_materno, nombres, fecha_nacimiento } = info_dni;
+                //agregar datos a un objeto
+                const persona = new Personas(id, apellido_paterno, apellido_materno, nombres, fecha_nacimiento);
+                //Enviar datos a una DB en json
+                const add = new Agregar();
+                add.agregarConsolidado(persona);
+        }
+
+}
+
+// const LeerDocumentos = require('./models/LeerDocumentos');
+
+// function main2() {
+//       const datos = new LeerDocumentos();
+//       const data = datos.leerDB();
+//       console.log(data);
 
 // }
 
-const LeerDocumentos = require('./models/LeerDocumentos');
+// main2();
 
-function main2() {
-      datos = new LeerDocumentos();
-      
-}
-
-main2();
-
-//main();
+main();
 //Puerto Listen
 // app.listen(port, () => {
 //     console.log(`El servidor está corriendo en el puerto ${port}`);
